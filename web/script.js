@@ -1,6 +1,3 @@
-const chatContainer = document.getElementById("chat-container");
-const userInput = document.getElementById("user-input");
-
 // Function to add a user message to the chat container
 function addUserMessage(message) {
   const userMessageDiv = document.createElement("div");
@@ -24,6 +21,16 @@ function sendMessage() {
     addUserMessage(message);
     // Call your chatbot backend API or function here with the user's message
     // Receive the bot's response and call the addBotMessage function with the response
+    const chatContainer = document.getElementById("chat-container");
+    const userInput = document.getElementById("user-input");
+    const spawner = require('child_process').spawn;
+    const data_to_pass_in = 'Send this to python script';
+    console.log("Data to send to python script",data_to_pass_in);
+    const python_process = spawner('python',['chat2.py',data_to_pass_in]);
+    python_process.stdout.on('data',(data) => {
+    console.log('Data received from python script:',data.toString())
+    });
+    addBotMessage(data)
     userInput.value = ""; // Clear the input field
   }
 }
