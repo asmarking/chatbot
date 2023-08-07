@@ -7,7 +7,7 @@ from nltk_utils import bag_of_words, tokenize
 from weather import weather_parser
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
+bot_name = "chatbot"
 with open('intents.json','r') as f:
   intents = json.load(f)
 
@@ -38,13 +38,13 @@ with open('intents.json','r') as f:
 
   probs = torch.softmax(output, dim=1)
   prob = probs[0][predicted.item()]
-  if prob.item() > 0.1:
+  if prob.item() > 0.5:
     for intent in intents['intents']:
       if tag == intent["tag"]:
         if tag.__contains__("weather") == False:
-          response = {random.choice(intent['responses'])}
-          print(response)
+          response = random.choice(intent['responses'])
+          print(f"{bot_name}: {response}")
         else:
           weather_parser(tag,bot_name)
-      else:
-        print(f"{bot_name}: I do not understand...")
+  else:
+    print(f"{bot_name}: I do not understand...")
