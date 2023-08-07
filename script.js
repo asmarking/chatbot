@@ -3,6 +3,7 @@ function addUserMessage(message) {
   const userMessageDiv = document.createElement("div");
   userMessageDiv.classList.add("user-message");
   userMessageDiv.textContent = message;
+  chatContainer.appendChild(botMessageDiv);
   chatContainer.appendChild(userMessageDiv);
 }
 
@@ -11,6 +12,7 @@ function addBotMessage(message) {
   const botMessageDiv = document.createElement("div");
   botMessageDiv.classList.add("bot-message");
   botMessageDiv.textContent = message;
+  const chatContainer = document.getElementById("chat-container");
   chatContainer.appendChild(botMessageDiv);
 }
 
