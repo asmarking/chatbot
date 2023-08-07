@@ -16,6 +16,7 @@ function addBotMessage(message) {
 
 // Function to handle the user's message
 function sendMessage() {
+  const userInput = document.getElementById("user-input");
   const message = userInput.value.trim();
   if (message !== "") {
     addUserMessage(message);
@@ -40,3 +41,5 @@ function simulateBotResponse() {
   const botResponse = "Hello! This is the chatbot response.";
   setTimeout(() => addBotMessage(botResponse), 1000);
 }
+
+sendMessage()
