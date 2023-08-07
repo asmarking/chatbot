@@ -25,7 +25,7 @@ python train.py
 node server.js  
 
 ## How To Customize Chatbot <a name="how-it-works"></a>
-to add new training data add a dictionary to intents.json with the following formatt
+to add new training data add a dictionary to intents.json with the following format
 <pre>
 ```javascript
 {
