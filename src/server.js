@@ -2,7 +2,7 @@ const express = require('express');
 const { spawn } = require('child_process'); 
 const app = express();
 
-const PORT = 8080; // Choose any available port number
+const PORT = 6066; // Choose any available port number
 
 app.use(express.static(__dirname + '/'));
 
